@@ -91,9 +91,8 @@ Both segmentation techniques are compared using:
 
 ### Prerequisites
 
-- **MATLAB** with the following toolboxes:
+- **MATLAB** with the following toolbox:
   - Image Processing Toolbox (required).
-  - Statistics and Machine Learning Toolbox.
 - A DICOM dataset. [Example dataset from Kitware](https://data.kitware.com/#collection/579787098d777f1268277a27/folder/5a9dc8f78d777f06857860fd).
 
 ### Steps to Run
@@ -137,7 +136,7 @@ Each part of the project contains distinct functions, but the following are comm
 
 | Metric                         | Axial Planes                     | Coronal Planes                   |
 |--------------------------------|-----------------------------------|-----------------------------------|
-| **Largest Cross-sectional Area** | ~20,560 mm² (Axial only) | N/A | ~19,500 mm²                      |
+| **Largest Cross-sectional Area** | ~20,560 mm² (Axial only)         | N/A                              |
 | **Total Lung Volume**           | ~2.41 L                          | ~2.02 L                          |
 | **Height**                      | ~16.5 cm                         | ~15.75 cm                        |
 | **Dice coefficient**            | ~0.95                            | ~0.93                            |
