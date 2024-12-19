@@ -34,6 +34,13 @@ This project focuses on segmenting lung structures from CT scans, with both **au
 
 - Input: 3D CT volume in DICOM format.
 - A **user interface** enables browsing through slices and selecting regions for analysis.
+- The dataset contains partial lung images; the scans do not fully capture the entire lung structures. This limitation explains the relatively low lung volume and area measurements compared to typical full-lung values.
+- **Dataset Details**:
+  - Source: [Kitware DICOM Dataset](https://data.kitware.com/#collection/579787098d777f1268277a27/folder/5a9dc8f78d777f06857860fd).
+  - Steps to access:
+    1. Register on the Kitware Data platform.
+    2. Navigate to `patient0/T_0/CT` and download the DICOM files.
+    3. Use the provided `readDCMfolder` function to load the dataset into a MATLAB 3D volume stack.
 
 ### 2. Segmentation
 
@@ -49,10 +56,18 @@ This project focuses on segmenting lung structures from CT scans, with both **au
 ### 3. Comparison
 
 Both segmentation techniques are compared using:
-- Dice coefficient.
-- Average Surface Distance (ASD).
-- Relative area difference.
-- Curvature analysis.
+
+#### Metrics Explanation:
+- **Dice coefficient**:
+  - Measures the overlap between two segmentations.
+  - **1**: Perfect overlap.
+  - **0**: No overlap.
+- **Average Surface Distance (ASD)**:
+  - Measures the average distance between the contours of two segmentations.
+- **Relative area difference**:
+  - Compares the areas of two segmentations as a percentage.
+- **Local curvature analysis**:
+  - Compares contour curvatures to identify differences in smoothness or shape.
 
 ### 4. Noise Evaluation
 
@@ -71,9 +86,9 @@ Both segmentation techniques are compared using:
 
 ### Prerequisites
 
-- MATLAB with the following toolboxes:
-  - Image Processing Toolbox.
-  - Statistics and Machine Learning Toolbox (optional).
+- **MATLAB** with the following toolboxes:
+  - Image Processing Toolbox (required).
+  - Statistics and Machine Learning Toolbox.
 - A DICOM dataset. [Example dataset from Kitware](https://data.kitware.com/#collection/579787098d777f1268277a27/folder/5a9dc8f78d777f06857860fd).
 
 ### Steps to Run
@@ -95,6 +110,8 @@ Both segmentation techniques are compared using:
 
 ### Functions Overview
 
+Each part of the project contains distinct functions, but the following are commonly used:
+
 | Function                     | Description                                                                 |
 |------------------------------|-----------------------------------------------------------------------------|
 | `readDCMfolder`              | Reads DICOM files and generates a 3D volume.                               |
@@ -106,7 +123,6 @@ Both segmentation techniques are compared using:
 | `computeLocalCurvature`      | Computes local curvatures for contour comparison.                          |
 | `overlayContours`            | Overlays manual and automatic contours for visual inspection.              |
 | `applySegmentationToAllSlices`| Segments and processes all slices in a volume, calculates areas and volume.|
-| `readDCMfolder`              | Loads DICOM files, constructs the 3D volume, and extracts metadata.        |
 
 ---
 
@@ -145,11 +161,3 @@ Both segmentation techniques are compared using:
 
 1. Candemir, S., & Antani, S. (2019). A review on lung boundary detection in chest X-rays. *International Journal of Computer Assisted Radiology and Surgery*, 14(4), 563–576.
 2. Mansoor, A., et al. (2015). Segmentation and Image Analysis of Abnormal Lungs at CT: Current Approaches, Challenges, and Future Trends. *RadioGraphics*, 35(4), 1056–1076.
-
----
-
-## Authors
-
-- [Maë Lebedel](https://github.com/maelebedel)
-
-Feel free to contribute to the project by submitting issues or pull requests!
