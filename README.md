@@ -137,7 +137,7 @@ Each part of the project contains distinct functions, but the following are comm
 
 | Metric                         | Axial Planes                     | Coronal Planes                   |
 |--------------------------------|-----------------------------------|-----------------------------------|
-| **Largest Cross-sectional Area** | ~20,560 mm²                      | ~19,500 mm²                      |
+| **Largest Cross-sectional Area** | ~20,560 mm² (Axial only) | N/A | ~19,500 mm²                      |
 | **Total Lung Volume**           | ~2.41 L                          | ~2.02 L                          |
 | **Height**                      | ~16.5 cm                         | ~15.75 cm                        |
 | **Dice coefficient**            | ~0.95                            | ~0.93                            |
