@@ -2,7 +2,9 @@
 
 ## Project Overview
 
-This project focuses on segmenting lung structures from CT scans, with both **automatic** and **manual** approaches. The workflow is designed to evaluate and compare segmentation techniques, calculate lung areas and volumes, and analyze segmentation performance using metrics like the **Dice coefficient**, **Average Surface Distance (ASD)**, and **local curvature differences**. 
+This project focuses on segmenting lung structures from CT scans, with both **automatic** and **manual** approaches. The workflow is designed to evaluate and compare segmentation techniques, calculate lung areas and volumes, and analyze segmentation performance using metrics like the **Dice coefficient**, **Average Surface Distance (ASD)**, **Relative Area Difference**, and **Local Curvature Analysis**. 
+
+This project also aims to highlight the challenges associated with accurately segmenting lung boundaries, which often involve complex and variable edge structures.
 
 ### Objectives
 
@@ -11,6 +13,7 @@ This project focuses on segmenting lung structures from CT scans, with both **au
 3. **Introduce noise** to evaluate segmentation robustness.
 4. **Compare manual and automatic segmentations** using performance metrics.
 5. Provide **3D visualization** of segmented lung structures.
+6. **Highlight the challenges** of segmenting lung boundaries.
 
 ## Features
 
@@ -21,8 +24,8 @@ This project focuses on segmenting lung structures from CT scans, with both **au
 - **Comparison metrics**:
   - Dice coefficient.
   - Average Surface Distance (ASD).
-  - Relative area difference.
-  - Local curvature analysis.
+  - Relative Area Difference.
+  - Local Curvature Analysis.
 - **Noise evaluation**: Add Gaussian or pepper noise to assess segmentation robustness.
 - **Volume estimation** and 3D visualization.
 
@@ -64,10 +67,12 @@ Both segmentation techniques are compared using:
   - **0**: No overlap.
 - **Average Surface Distance (ASD)**:
   - Measures the average distance between the contours of two segmentations.
-- **Relative area difference**:
+- **Relative Area Difference**:
   - Compares the areas of two segmentations as a percentage.
-- **Local curvature analysis**:
+  - Calculated as \( \frac{|A_{manual} - A_{auto}|}{A_{manual}} \times 100 \% \).
+- **Local Curvature Analysis**:
   - Compares contour curvatures to identify differences in smoothness or shape.
+  - Useful for detecting regions with higher curvature (e.g., sharp edges).
 
 ### 4. Noise Evaluation
 
@@ -130,19 +135,21 @@ Each part of the project contains distinct functions, but the following are comm
 
 ### Metrics
 
-| Metric                         | Axial Planes   | Coronal Planes |
-|--------------------------------|----------------|----------------|
-| **Largest Cross-sectional Area** | ~20,560 mm²    | ~19,500 mm²    |
-| **Total Lung Volume**           | ~2.41 L        | ~2.02 L        |
-| **Height**                      | ~16.5 cm       | ~15.75 cm      |
+| Metric                         | Axial Planes                     | Coronal Planes                   |
+|--------------------------------|-----------------------------------|-----------------------------------|
+| **Largest Cross-sectional Area** | ~20,560 mm²                      | ~19,500 mm²                      |
+| **Total Lung Volume**           | ~2.41 L                          | ~2.02 L                          |
+| **Height**                      | ~16.5 cm                         | ~15.75 cm                        |
+| **Dice coefficient**            | ~0.95                            | ~0.93                            |
+| **ASD**                         | ~3-4 mm                          | ~1-2 mm                          |
+| **Relative Area Difference**    | ~6-7%                            | ~5-6%                            |
+| **Local Curvature Differences** | Minimal                          | Minimal                          |
 
 ### Observations
 
 - **Manual vs Automatic Comparison**:
-  - Dice coefficient: ~0.95.
-  - ASD: ~3-4 mm (axial), ~1-2 mm (coronal).
-  - Relative area difference: ~6-7%.
-  - Local curvature differences: Minimal.
+  - Axial planes tend to show slightly higher Dice scores and ASD values due to the alignment and partial visualization of structures.
+  - Coronal planes offer smoother contours and lower ASD due to better continuity along the scan.
 - **Noise Impact**:
   - Increased noise degrades segmentation accuracy.
   - Pepper noise has a more pronounced effect on edge detection.
