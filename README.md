@@ -62,18 +62,18 @@ Both segmentation techniques are compared using:
 
 #### Metrics Explanation:
 - **Dice coefficient**:
-  - Formula: \( Dice = \frac{2 \times |A \cap B|}{|A| + |B|} \).
+  - Formula: `Dice = (2 * |A ∩ B|) / (|A| + |B|)`
   - Measures the overlap between two segmentations.
   - **1**: Perfect overlap.
   - **0**: No overlap.
 - **Average Surface Distance (ASD)**:
-  - Formula: \( ASD = \frac{1}{N_A} \sum_{a \in A} \min_{b \in B} d(a, b) + \frac{1}{N_B} \sum_{b \in B} \min_{a \in A} d(b, a) \).
+  - Formula: `ASD = (1/NA) * Σ[min(d(a, b)) for a in A] + (1/NB) * Σ[min(d(b, a)) for b in B]`
   - Measures the average distance between the contours of two segmentations.
 - **Relative Area Difference**:
-  - Formula: \( Relative \ Difference = \frac{|A_{manual} - A_{auto}|}{A_{manual}} \times 100 \% \).
+  - Formula: `Relative Difference = |A_manual - A_auto| / A_manual * 100%`
   - Compares the areas of two segmentations as a percentage.
 - **Local Curvature Analysis**:
-  - Formula: \( \kappa = \frac{|x' y'' - y' x''|}{(x'^2 + y'^2)^{3/2}} \).
+  - Formula: `κ = |x'y'' - y'x''| / (x'^2 + y'^2)^(3/2)`
   - Compares contour curvatures to identify differences in smoothness or shape.
   - Useful for detecting regions with higher curvature (e.g., sharp edges).
 
