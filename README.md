@@ -8,7 +8,7 @@ This project also aims to highlight the challenges associated with accurately se
 
 ### Objectives
 
-1. **Segment the lungs** from CT scans and calculate the cross-sectional areas for axial and coronal slices.
+1. **Segment the lungs** from CT scans and calculate the cross-sectional areas for axial and area for coronal slices.
 2. **Quantify total lung volume** and height based on segmented regions.
 3. **Introduce noise** to evaluate segmentation robustness.
 4. **Compare manual and automatic segmentations** using performance metrics.
@@ -139,7 +139,6 @@ Each part of the project contains distinct functions, but the following are comm
 
 | Metric                         | Axial Planes                     | Coronal Planes                   |
 |--------------------------------|-----------------------------------|-----------------------------------|
-| **Largest Cross-sectional Area** | ~20,560 mm² (Axial only)         | N/A                              |
 | **Total Lung Volume**           | ~2.41 L                          | ~2.02 L                          |
 | **Height**                      | ~16.5 cm                         | ~15.75 cm                        |
 | **Dice coefficient**            | ~0.95                            | ~0.93                            |
